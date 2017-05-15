@@ -88,10 +88,10 @@ const getUserData = (data, checks) => {
       { errors: { $className: 'nothingToVerify' } });
   }
 
-  if (checks.includes('is_verified') && !user.is_verified) {
-    throw new errors.BadRequest('User is not verified.',
-      { errors: { $className: 'is_verified' } });
-  }
+  // if (checks.includes('is_verified') && !user.is_verified) {
+  //   throw new errors.BadRequest('User is not verified.',
+  //     { errors: { $className: 'is_verified' } });
+  // }
 
   if (checks.includes('verifyNotExpired') && user.verify_expires < Date.now()) {
     throw new errors.BadRequest('Verification token has expired.',
